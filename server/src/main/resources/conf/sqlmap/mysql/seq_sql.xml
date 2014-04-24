@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+  <!-- 获取指定名称序列流水 -->
+  <select id="getseqbyname" parameterClass="java.lang.String" resultClass="java.lang.String">
+     SELECT nextvalue(#value#) AS seq;
+  </select>
+  
+  <!--根据规则获取订单编号 -->
+  <select id="getseqno" parameterClass="java.util.HashMap" resultClass="java.lang.String">
+     SELECT CONCAT(#header#,DATE_FORMAT(NOW(), #datestyle#),LPAD(nextvalue(#type#),#count#,0)) AS ordernum;
+  </select>
+  
+</sqlMap>
