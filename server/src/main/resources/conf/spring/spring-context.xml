@@ -36,6 +36,6 @@
 	</bean>
 	
 	<!--事物处理方式 使用@Transactional 标注在 方法上-->
-	<tx:annotation-driven />
+	<tx:annotation-driven transaction-manager="transactionManager"/> 
 </beans>
 	
