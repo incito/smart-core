@@ -2,31 +2,29 @@ package com.incito.product.app;
 
 import java.util.HashMap;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.incito.product.common.BaseCtrl;
 
 /**
  * pad端 接口Rest处理
+ * 
  * @author zhaigt
- *
+ * 
  */
-@Controller
+@RestController
 @RequestMapping("/")
-public class IndexCtrl extends BaseCtrl{
-  
+public class IndexCtrl extends BaseCtrl {
+
   /**
-   * pad端 接口Rest处理
-   * 接收pad 接口请求
+   * pad端 接口Rest处理 接收pad 接口请求
    */
   @RequestMapping("/index")
-  @ResponseBody
-  public HashMap<String,Object> index(){
-    HashMap<String,Object> res = new HashMap<String,Object>();
+  public HashMap<String, Object> index() {
+    HashMap<String, Object> res = new HashMap<String, Object>();
     try {
-      HashMap<String,Object> person = new HashMap<String,Object>();
+      HashMap<String, Object> person = new HashMap<String, Object>();
       person.put("username", "taotao");
       person.put("address", "湖北");
       person.put("sex", "男");
@@ -38,6 +36,5 @@ public class IndexCtrl extends BaseCtrl{
     }
     return res;
   }
-   
-  
+
 }

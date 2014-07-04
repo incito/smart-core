@@ -1,10 +1,11 @@
 package com.incito.product.web;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.incito.product.common.BaseCtrl;
@@ -14,7 +15,7 @@ import com.incito.product.common.BaseCtrl;
  * @author zhaigt
  *
  */
-@Controller
+@RestController
 @RequestMapping("/")
 public class IndexCtrl extends BaseCtrl{
   
@@ -45,4 +46,23 @@ public class IndexCtrl extends BaseCtrl{
     return mv;
   }
   
+  /**
+   * pad端 接口Rest处理 接收pad 接口请求
+   */
+  @RequestMapping("/getMsg")
+  public HashMap<String, Object> getMsg() {
+    HashMap<String, Object> res = new HashMap<String, Object>();
+    try {
+      HashMap<String, Object> person = new HashMap<String, Object>();
+      person.put("username", "taotao");
+      person.put("address", "湖北");
+      person.put("sex", "男");
+      res.put("item", person);// 数据列表
+      res.put("status", 1);// 成功
+      res.put("msg", "hello");// 绑定变量
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return res;
+  }
 }
